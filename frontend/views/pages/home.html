@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Home</title>
+     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+     <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+     <!-- modal -->
+     <div id="modal" class="justify-content-center align-items-center">
+          <div class="content">
+               <div class="linha">
+                    <div class="col d-flex justify-content-between p-3">
+                         <h3 id="titulo-modal">Carregando...</h3>
+                         <button onclick="fecharModal()" class="btn btn-sm btn-danger">Fechar</button>
+                    </div>
+                    <table class="table">
+                         <thead>
+                              <tr>
+                                   <th scope="col">Nome/Nome fantasia</th>
+                                   <th scope="col">CPF/CNPJ</th>
+                              </tr>
+                         </thead>
+                         <tbody id="tabela-modal">
+                              <!-- <tr>
+                                   <th scope="row">1</th>
+                                   <td>Mark</td>
+                              </tr> -->
+                         </tbody>
+                    </table>
+               </div>
+          </div>
+     </div>
+     <header>
+          <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+               <div class="container">
+                    <a href="#" class="navbar-brand">
+                         Empresa - Fornecedor
+                    </a>
+                    <div class="collapse navbar-collapse">
+                         <ul class="navbar-nav ml-auto">
+                              <li class="nav-item active">
+                                   <a href="home.html" class="nav-link">Início</a>
+                              </li>
+                              <li class="nav-item">
+                                   <a href="cadastro-empresa.html" class="nav-link">Cadastrar Empresa</a>
+                              </li>
+                              <li class="nav-item">
+                                   <a href="cadastro-fornecedor.html" class="nav-link ">Cadastrar Fornecedor</a>
+                              </li>
+                         </ul>
+                    </div>
+               </div>
+          </nav>
+     </header>
+     <div class="container">
+          <form action="" class="d-flex justify-content-center pt-4 pb-4">
+               <div class="form-check form-check-inline mr-2">
+                    <input class="form-check-input" type="radio" name="tipo_lista" id="input_empresas" value="1" checked
+                         onchange="alterarListagem()">
+                    <label class="form-check-label" for="input_empresas">Empresas</label>
+               </div>
+               <div class="form-check form-check-inline ml-2">
+                    <input class="form-check-input" type="radio" name="tipo_lista" id="input_fornecedores" value="2"
+                         onchange="alterarListagem()">
+                    <label class="form-check-label" for="input_fornecedores">Fornecedores</label>
+               </div>
+          </form>
+          <table class="table table-striped">
+               <thead class="text-white bg-blue">
+                    <tr>
+                         <th scope="col" class="w-30">Nome</th>
+                         <th scope="col" class="w-30">CNPJ/CPF</th>
+                         <th scope="col" class="w-10">UF</th>
+                         <th scope="col" class="w-30">Ações</th>
+                    </tr>
+               </thead>
+               <tbody id="tabela">
+                    <!-- Itens sendo renderizados dinâmicamente -->
+               </tbody>
+          </table>
+          <div class="row">
+               <div class="container">
+                    <div class="col d-flex justify-content-center">
+                         <div class="spinner-dual d-none" id="spinner-loader"></div>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <script src="../assets/js/jquery.js"></script>
+     <script src="../assets/js/home.js"></script>
+     <script src="../assets/js/cadastro_empresa.js"></script>
+     <script src="../assets/js/cadastro-fornecedor.js"></script>
+     <!-- Lista empresa por padrão -->
+     <script>
+          $(document).ready(function () {
+               $("#input_empresas").attr('checked', true);
+               listaEmpresa();
+          })
+     </script>
+</body>
+
+</html>

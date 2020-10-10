@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro | Empresa</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body class="bg-body">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container">
+                <a href="#" class="navbar-brand">
+                    Empresa - Fornecedor
+                </a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="home.html" class="nav-link">Início</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="cadastro-empresa.html" class="nav-link">Cadastrar Empresa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="cadastro-fornecedor.html" class="nav-link ">Cadastrar Fornecedor</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <form action="" id="form-cadastro-empresa" class="bg-light ml-auto mr-auto mt-3 p-4 rounded">
+            <div id="double_req_block" class="d-none">
+                <div class="row">
+                    <div class="container">
+                        <div class="col d-flex justify-content-center">
+                            <div id="spinner_loader" class="spinner-dual"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mb-4">
+                <h1 class="display-4 font-titulo-form">Cadastre uma Empresa</h1>
+            </div>
+            <div class="form-row ">
+                <div class="form-group col-md-6 pr-2">
+                    <label for="razao_social">Razão social</label>
+                    <input type="text" class="form-control" id="razao_social">
+                </div>
+                <div class="form-group col-md-6 pl-2">
+                    <label for="nome_fantasia">Nome Fantasia<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="nome_fantasia" required>
+                </div>
+            </div>
+            <div class="form-row ">
+                <div class="form-group col-md-6 pr-2">
+                    <label for="cnpj">CNPJ<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="cnpj" required
+                        onkeydown="javascript: fMasc( this, mCNPJ);" MAXLENGTH="18">
+                </div>
+                <div class="form-group col-md-6 pl-2">
+                    <label for="uf">UF<span class="text-danger">*</span></label>
+                    <select id="uf" class="form-control w-50" required>
+                        <option value="0" selected disabled>Selecione UF</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                        <option value="EX">Estrangeiro</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row ">
+                <div class="form-group col-md-6 pr-2">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <div class="form-group col-md-6 pl-2">
+                    <label for="contato">Celular/Telefone</label>
+                    <input type="text" class="form-control" id="contato" onkeydown="javascript: fMasc( this, mTel);"
+                        MAXLENGTH="14">
+                </div>
+            </div>
+
+            <div class="form-group col-md-6 pr-2">
+                <div class="selectBox" onclick="showCheckboxes()">
+                    <label for="fornecedor">Fornecedor(s)<span class="text-danger">*</span></label>
+                    <select id="fornecedor" class="form-control w-100" required>
+                        <option selected disabled>Escolhas os fornecedores desta empresa</option>
+                    </select>
+                    <div class="overSelect"></div>
+                </div>
+                <div id="checkboxes">
+
+                </div>
+            </div>
+            <div class="w-100 d-flex justify-content-center">
+                <!-- Valida cnpj antes de cadastrar -->
+                <button type="button" id="btn-cadastrar" class="btn btn-primary btn-lg"
+                    onclick="validaCnpj($('#cnpj').val()) ? cadastrarEmpresa() : alert('CNPJ inválido!')">
+                    Cadastrar
+                </button>
+            </div>
+        </form>
+    </div>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/cadastro_empresa.js"></script>
+    <script src="../assets/js/relacionamento-select.js"></script>
+    <script src="../assets/js/input_field_validator.js"></script>
+    <script>
+        $(document).ready(function () {
+            listaFornecedores()
+            recuperarDadosEmpresa();
+        })
+    </script>
+</body>
+
+</html>

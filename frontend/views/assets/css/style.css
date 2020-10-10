@@ -1,0 +1,143 @@
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+body{
+    font-size: 16px;
+}
+
+.bg-blue{
+  background-color: #007BFF;
+}
+
+#form-cadastro-empresa, #form-cadastro-fornecedor{
+    height: auto;
+    min-height: 100px;
+}
+
+#form-cadastro-relacionamento{
+    min-height: 300px;
+}
+
+.width-inputs{
+    width: 65%;
+}
+
+.bg-body{
+    background-color: #6c757d;
+}
+
+.font-titulo-form{
+    font-size: 2.3em;
+}
+
+.w-30{
+  width: 30%;
+}
+
+.w-10{
+  width: 10%;
+}
+
+/* Select - relacionamento */
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: 1px #76818a solid;
+  position: absolute;
+  width: 500px;
+  height: 100px;
+  overflow: auto;
+  background-color: #FFF;
+  z-index: 9;
+}
+
+#checkboxes label {
+  display: block;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+
+.checkboxes-item{
+  margin-right: 10px;
+  margin-left: 17px;
+}
+
+/* Animação */
+#double_req_block{
+  width: 1060px;
+  height: 390px;
+  background-color: rgb(255, 255, 255, 0.718);
+  position: absolute;
+  z-index: 10;
+}
+
+.spinner-dual,
+.spinner-dual-sm {
+  width:80px;
+  height:80px;
+  border: 8px solid transparent;
+  border-top-color: rgb(91, 123, 228);
+  border-bottom-color: rgb(91, 123, 228);
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+  display: block;
+  margin-top:10px;
+}
+.spinner-dual-sm{
+  width: 20px;
+  height: 20px;
+  border:2px solid transparent;
+  margin-left: 20px;
+  border-top-color: rgb(43, 69, 228);
+  border-bottom-color: rgb(43, 69, 228);
+}
+
+.h-double-req{
+  height: 440px !important;
+}
+
+/* Área modal */
+#modal{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgb(0, 0, 0, 0.644);
+  z-index: 99;
+  display: none;
+}
+
+.content{
+  width: 500px;
+  height: 500px;
+  overflow: auto;
+  background-color: #FFF;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 8px;
+}
+
+.linha{
+  width: 100%;
+  height: auto;
+}
