@@ -1,4 +1,3 @@
-# Processo seletivo WakaTech - Ingrid Pereira da Silva
 
 **Objetivo do teste:** Criar uma lista de fornecedores relacionado a uma empresa;
 
